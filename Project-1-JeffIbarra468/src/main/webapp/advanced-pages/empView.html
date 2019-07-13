@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<title>View your personal information</title>
+</head>
+<body>
+	<nav class="navbar nav-pills navbar-expand-sm">
+		<!-- 
+		<a class="navbar-brand" href="/Project-1-JeffIbarra468/WEB-INF/employeeHomePage.html">Employee Home Page</a>
+        <a class="nav-link" href="/Project-1-JeffIbarra468/WEB-INF/employeeHomePage.html">Home</a>
+		 -->
+		<a class="nav-link" href="newRmb.html">Submit a reimbursement request</a>
+        <a class="nav-link" href="empPen.html">View all pending reimbursement requests</a>
+        <a class="nav-link" href="empRes.html">View all resolved reimbursement requests</a>
+        <a class="nav-link active" href="empView.html">View your personal information</a>
+        <a class="nav-link" href="empUpD.html">Update your personal information</a>
+        <a class="nav-link" href="/Project-1-JeffIbarra468/">Logout</a>
+    </nav>
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-8">
+				<h1>Viewing your Personal Information</h1>
+			</div>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-md-8">
+				<h3><button id = "getInfo">
+						View your personal information
+				</button></h3>
+		</div>
+	</div>
+	<div class = "col-md-8">
+		<ul id = "perInfo"></ul>
+	</div>
+	<script src="/Project-1-JeffIbarra468/advanced-pages/fetchEmp.js"></script>
+</body>
+</html>
