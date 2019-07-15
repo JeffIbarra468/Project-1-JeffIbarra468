@@ -81,7 +81,7 @@ public class LoginServlet extends HttpServlet {
 
 			// Attach user account to session
 			session.setAttribute("user", loginService.getUser(username, password));
-		
+			
 			// Employee role
 			String role = loginService.getUser(username, password).getRole();
 			log.trace("EMP Role: " + role);

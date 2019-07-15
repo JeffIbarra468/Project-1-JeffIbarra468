@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.pattern.IntegerPatternConverter;
 
@@ -36,14 +37,15 @@ public class ReimbursementView extends HttpServlet {
 
 		User user = (User) req.getSession().getAttribute("user");
 		
-		// Gets remID from session 
-		long uId = user.getRemId();
+		long uId = user.getUserId();
+		
+		long remId = 0;
 		
 		// Sets reimbursement ID
-		if(uId == 0L)
-			uId = 1;
+		if(remId == 0)
+			remId = 13;
 		else
-			uId++;
+			remId++;
 			
 		String descrip = req.getParameter("description");
 		Double cost = Double.parseDouble(req.getParameter("cost"));
@@ -52,7 +54,7 @@ public class ReimbursementView extends HttpServlet {
 		
 		
 		// Call submitReimb service to pass descrip and cost (String descrip, Double cost)
-		if(SubmitService.submitReimbursement(uId, descrip, cost))
+		if(SubmitService.submitReimbursement(uId, remId, descrip, cost))
 			{
 				System.out.println("Success submitting reimbursment");
 				resp.sendRedirect("/WEB-INF/employeeHomePage.html");
@@ -62,6 +64,9 @@ public class ReimbursementView extends HttpServlet {
 			System.out.println("Reimbursement Failed");
 			resp.getWriter()
 			.write("<html><h1>Reimbursement Failed</h1>" + "<a href=\"/Project-1-JeffIbarra468\">Go back</a></html>");
+			
+//			
+//			/WEB-INF/employeeHomePage.html
 		}
 		
 	}

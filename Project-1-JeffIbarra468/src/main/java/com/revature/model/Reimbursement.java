@@ -11,13 +11,15 @@ public class Reimbursement {
 	 */
 	
 	private long uId;
+	private long remId;
 	private String descrip;
 	private double cost;
 	private String status;
 	
 	public Reimbursement(ResultSet resultSet) throws SQLException {
 		
-		this(resultSet.getLong("rem_Id"),
+		this(resultSet.getLong("emp_Id"),
+				resultSet.getLong("rem_Id"),
 				resultSet.getString("rem_descrip"),
 				resultSet.getDouble("rem_cost"),
 				resultSet.getString("rem_status")
@@ -49,11 +51,17 @@ public class Reimbursement {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+	public long getRemId() {
+		return remId;
+	}
+	public void setRemId(long remId) {
+		this.remId = remId;
+	}
+
 	// Field Constructor
-	public Reimbursement(long uId, String descrip, double cost, String status) {
+	public Reimbursement(long uId, long remId, String descrip, double cost, String status) {
 		this.uId = uId;
+		this.remId = remId;
 		this.descrip = descrip;
 		this.cost = cost;
 		this.status = status;

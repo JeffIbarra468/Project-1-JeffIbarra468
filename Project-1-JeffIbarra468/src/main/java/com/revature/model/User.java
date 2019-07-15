@@ -16,7 +16,6 @@ public class User {
 	private String role;
 	private String username;
 	private String password;
-	private Long remId;
 	
 	public User(ResultSet resultSet) throws SQLException {
 		
@@ -25,8 +24,7 @@ public class User {
 				resultSet.getString("emp_lastN"),
 				resultSet.getString("emp_role"),
 				resultSet.getString("emp_userN"),
-				resultSet.getString("emp_passW"),
-				resultSet.getLong("rem_Id")
+				resultSet.getString("emp_passW")
 				);		
 	}
 
@@ -80,24 +78,16 @@ public class User {
 		this.password = password;
 	}
 
-	public Long getRemId() {
-		return remId;
-	}
-
-	public void setRemId(Long remId) {
-		this.remId = remId;
-	}
 
 
 	// Field Constructor
-	public User(long userId, String firstName, String lastName, String role, String username, String password, Long remId) {
+	public User(long userId, String firstName, String lastName, String role, String username, String password) {
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.role = role;
 		this.username = username;
 		this.password = password;
-		this.remId = remId;
 	}
 	
 	@Override

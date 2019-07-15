@@ -62,12 +62,12 @@ public class EmployeeUpdate extends HttpServlet {
 		
 		if(EmpUpService.updateEmployee(user)) {
 			System.out.println("Sucess updating Employee");
-			resp.sendRedirect("/WEB-INF/employeeHomePage.html");
+			resp.sendRedirect("/Project-1-JeffIbarra468/advanced-pages/empView.html");
 		}
 		else {
 			System.out.println("Employee Update Failed");
 			resp.getWriter()
-			.write("<html><h1>Employee Update Failed</h1>" + "<a href=\"/Project-1-JeffIbarra468\">Go back</a></html>");
+			.write("<html><h1>Employee Update Failed</h1>" + "<a href=\"/Project-1-JeffIbarra468/advanced-pages/empUpD.html\">Go back</a></html>");
 		}
 		
 	}

@@ -12,9 +12,9 @@ public class EmpResolvedService {
 		this.reimbursementDAO = reimbursementDAO;
 	}
 	
-	public Reimbursement employeeResolved(long remId) {
+	public Reimbursement employeeResolved(long uId) {
 		
-		Reimbursement reimbursement = reimbursementDAO.employeeResolved(remId);
+		Reimbursement reimbursement = reimbursementDAO.employeeResolved(uId);
 		return reimbursement;
 	}	
 }

@@ -32,10 +32,10 @@ public class EmployeePending extends HttpServlet {
 		User user = (User) req.getSession().getAttribute("user");
 		
 		// Gets remID from session 
-		long remId = user.getRemId();
+		long userId = user.getUserId(); 
 			
 		// Gets reimbursement object from database via DAO via Serivce
-		Reimbursement reimbursement = EmpPendService.employeePending(remId);
+		Reimbursement reimbursement = EmpPendService.employeePending(userId);
 		
 		// Using Object Mapper to turn Java Objects into JSON
 		ObjectMapper om = new ObjectMapper();
