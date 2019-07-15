@@ -17,7 +17,7 @@ import com.revature.service.LoginService;
 public class EmployeeView extends HttpServlet {
 
 	// set up our Logger:
-	private static Logger log = Logger.getLogger(LoginServlet.class);
+	private static Logger log = Logger.getLogger(EmployeeView.class);
 
 	// get our LoginService
 	private static LoginService loginService = new LoginService(new UserDAOImpl());
@@ -47,5 +47,11 @@ public class EmployeeView extends HttpServlet {
 		// Commits response
 		resp.flushBuffer();		
 	}
-	
+
+	// Goes to Fetch
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("EmpView: IN POST GOES TO doGet");
+		doGet(req, resp);
+	}
 }

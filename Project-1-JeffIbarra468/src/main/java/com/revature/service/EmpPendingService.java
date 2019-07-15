@@ -12,9 +12,9 @@ public class EmpPendingService {
 		this.reimbursementDAO = reimbursementDAO;
 	}
 	
-	public Reimbursement employeePending(Reimbursement reimbursement) {
+	public Reimbursement employeePending(long uId) {
 		
-		reimbursement = reimbursementDAO.employeePending(reimbursement);
+		Reimbursement reimbursement = reimbursementDAO.employeePending(uId);
 		return reimbursement;
 	}
 }

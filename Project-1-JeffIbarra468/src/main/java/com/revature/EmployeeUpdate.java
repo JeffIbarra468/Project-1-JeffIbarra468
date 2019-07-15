@@ -21,7 +21,7 @@ public class EmployeeUpdate extends HttpServlet {
 	// Handles fetch requests
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		resp.getWriter().append("Served at: ").append(req.getContextPath());
+		resp.getWriter().append("EmployeeUpdate Served at: ").append(req.getContextPath());
 	}
 
 	// Handles Updating Employee

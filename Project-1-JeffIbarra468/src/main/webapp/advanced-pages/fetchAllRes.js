@@ -1,17 +1,17 @@
 'use strict';
 
 // View Personal Information - elements
-let getAllResR = document.getElementById("getAllResR");
+//let getAllResR = document.getElementById("getAllResR");
 //Element where user will see all interactions
 let allResR = document.getElementById("allResR");
 
 // View Personal Information
 
 // Clicker event by getAllResR element Id
-getAllResR.addEventListener("click", (event) => {
-	event.preventDefault();
+//getAllResR.addEventListener("click", (event) => {
+//	event.preventDefault();
 
-	fetch("/AllResolved")
+	fetch("/Project-1-JeffIbarra468/AllResolved")
 		.then((response) => {
 			console.log(response);
 			return response.json();
@@ -34,4 +34,4 @@ getAllResR.addEventListener("click", (event) => {
 		.catch((err) => {
 			console.log(err);
 		});
-});
+//});

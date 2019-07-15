@@ -43,7 +43,7 @@ public class AllPending extends HttpServlet {
 		String jsonRepUser = reimbursement == null ? "" : om.writeValueAsString(reimbursement);
 				
 		log.trace("JSON " + jsonRepUser);
-//		System.out.println("JSON " + jsonRepUser);
+		System.out.println("JSON " + jsonRepUser);
 				
 		// setting content type tells browser what to expect in body of response
 		resp.setContentType("application/json");

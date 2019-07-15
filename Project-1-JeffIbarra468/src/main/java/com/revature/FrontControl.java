@@ -29,14 +29,14 @@ public class FrontControl extends HttpServlet {
 	
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		resp.getWriter().append("Served at: ").append(req.getContextPath());
+//		resp.getWriter().append("Served at: ").append(req.getContextPath());
 		
-		log.trace("FrontController received URI: " + req.getRequestURI());
+//		log.trace("FrontController received URI: " + req.getRequestURI());
 		
 		
 		String[] tokens = req.getRequestURI().split("/");
 		
-		log.trace("tokens received: " + Arrays.toString(tokens));
+//		log.trace("tokens received: " + Arrays.toString(tokens));
 
 		// May not need this given LoginServlet
 		/*	
@@ -51,7 +51,7 @@ public class FrontControl extends HttpServlet {
 		System.out.println("t2 " + tokens[2]);
 		System.out.println("t3 " + tokens[3]);
 		
-		PrintWriter writer = resp.getWriter();
+//		PrintWriter writer = resp.getWriter();
 		
 		
 		// THIS GIVES ME NULL POINT EXCEPTION ERROR 
@@ -63,7 +63,7 @@ public class FrontControl extends HttpServlet {
 		// REIMBURSEMENT IT MAY NEED TO REFERENCE THE EMPLOYEE ID
 		// AND WE MAY NOT HAVE IT AKA HAVE TO CHANGE THE TABLE AGAIN
 		//
-		/*
+		
 		// Every GET request will forward session information
 		try {
 			switch(tokens[3]) {
@@ -87,11 +87,10 @@ public class FrontControl extends HttpServlet {
 				// to forward to a Servlet, use the Servlet's mapping
 				req.getRequestDispatcher("/EmployeeUpdate").forward(req, resp);
 				break;
-//			case "empView.html":
-//				// to forward to a Servlet, use the Servlet's mapping
-//				System.out.println("IN EMPVIEW");
-//				req.getRequestDispatcher("/empView").forward(req, resp);
-//				break;
+			case "empView.html":
+				// to forward to a Servlet, use the Servlet's mapping
+				req.getRequestDispatcher("/empView").forward(req, resp);
+				break;
 			case "newRmb.html":
 				// to forward to a Servlet, use the Servlet's mapping
 				req.getRequestDispatcher("/ReimbursementView").forward(req, resp);
@@ -101,9 +100,8 @@ public class FrontControl extends HttpServlet {
 				req.getRequestDispatcher("/OneEmployee").forward(req, resp);
 				break;
 			case "resRem.html":
-				// 	MANAGER APPROVE DENY SERVLET - NOT FINISHED
 				// to forward to a Servlet, use the Servlet's mapping
-				req.getRequestDispatcher("/resRem").forward(req, resp);
+				req.getRequestDispatcher("/ManagerApproval").forward(req, resp);
 				break;
 			default:
 				resp.sendError(404);
@@ -111,7 +109,7 @@ public class FrontControl extends HttpServlet {
 		} catch(ArrayIndexOutOfBoundsException e) {
 			resp.sendError(400, "No argument given to String method url");
 		}
-		*/
+		
 	}
 
 }

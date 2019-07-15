@@ -33,14 +33,10 @@ public class EmployeeResolved extends HttpServlet {
 		User user = (User) req.getSession().getAttribute("user");
 		
 		// Gets remID from session 
-		long uId = user.getRemId();
-				
-		// Sets reimbursement uId to retrieve it from database
-		Reimbursement reimbursement = null;
-		reimbursement.setuId(uId);
-	
+		long remId = user.getRemId();
+
 		// Gets reimbursement object from database via DAO via Service
-		reimbursement = EmpResService.employeeResolved(reimbursement);
+		Reimbursement reimbursement = EmpResService.employeeResolved(remId);
 				
 		// Using Object Mapper to turn Java Objects into JSON
 		ObjectMapper om = new ObjectMapper();

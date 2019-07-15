@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 	// get our LoginService
 	private static LoginService loginService = new LoginService(new UserDAOImpl());
 
-	
+	/*
 	// Responses to Fetch GET requests
 	@Override
 	protected void doGet (HttpServletRequest req, HttpServletResponse resp)  throws IOException, ServletException {
@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 		// Commits response
 		resp.flushBuffer();
 	}
-	
+	*/
 	
 	// Get the username and password
 	@Override

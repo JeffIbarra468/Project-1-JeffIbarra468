@@ -13,12 +13,12 @@ public class SubmitService {
 	}
 
 	// Pass reimbursment object to DAOIMPL and return true if created successful
-	public boolean submitReimbursement(Reimbursement reimbursement) {
+	public boolean submitReimbursement(long uId, String descrip, Double cost) {
 		
 		//Is false at first
 		boolean check = false;
 		
-		check = reimbursementDAO.submitReimbursement(reimbursement);
+		check = reimbursementDAO.submitReimbursement(uId, descrip, cost);
 		
 		if(check == true)
 			return true;

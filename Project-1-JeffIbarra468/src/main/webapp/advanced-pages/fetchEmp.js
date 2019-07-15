@@ -1,17 +1,18 @@
 'use strict';
 
 // View Personal Information - elements
-let getInfo = document.getElementById("getInfo");
+//let getInfo = document.getElementById("getInfo");
 //Element where user will see all interactions
 let perInfo = document.getElementById("perInfo");
 
 // View Personal Information
 
 // Clicker event by getInfo element Id
-getInfo.addEventListener("click", (event) => {
-	event.preventDefault();
+//getInfo.addEventListener("click", (event) => {
+//	event.preventDefault();
 
-	fetch("/Project-1-JeffIbarra468/login")
+	// /Project-1-JeffIbarra468/login
+	fetch("/Project-1-JeffIbarra468/empView")
 		.then((response) => {
 			console.log(response);
 			return response.json();
@@ -34,4 +35,4 @@ getInfo.addEventListener("click", (event) => {
 		.catch((err) => {
 			console.log(err);
 		});
-});
+//});

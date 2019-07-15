@@ -1,17 +1,19 @@
 'use strict';
 
-// View Personal Information - elements
-let getAllPenR = document.getElementById("getAllPenR");
+
+//// View Personal Information - elements
+//let getAllPenR = document.getElementById("getAllPenR");
+
 //Element where user will see all interactions
 let allPenR = document.getElementById("allPenR");
 
 // View Personal Information
 
 // Clicker event by getAllPenR element Id
-getAllPenR.addEventListener("click", (event) => {
-	event.preventDefault();
+//getAllPenR.addEventListener("click", (event) => {
+//	event.preventDefault();
 
-	fetch("/AllPending")
+	fetch("/Project-1-JeffIbarra468/AllPending")
 		.then((response) => {
 			console.log(response);
 			return response.json();
@@ -34,4 +36,4 @@ getAllPenR.addEventListener("click", (event) => {
 		.catch((err) => {
 			console.log(err);
 		});
-});
+//});

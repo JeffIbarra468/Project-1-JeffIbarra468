@@ -1,17 +1,17 @@
 'use strict'
 
 // View Resolved Reimbursements - elements
-let getResR = document.getElementById("getResR");
+//let getResR = document.getElementById("getResR");
 //Element where user will see all interactions
 let resR = document.getElementById("resR");
 
 //View Resolved Reimbursements
 
 //Clicker event by getResR element Id
-getResR.addEventListener("click", (event) => {
-	event.preventDefault();
+//getResR.addEventListener("click", (event) => {
+//	event.preventDefault();
 
-	fetch("/EmployeeResolved")
+	fetch("/Project-1-JeffIbarra468/EmployeeResolved")
 		.then((response) => {
 			console.log(response);
 			return response.json();
@@ -34,4 +34,4 @@ getResR.addEventListener("click", (event) => {
 		.catch((err) => {
 			console.log(err);
 		});
-});
+//});

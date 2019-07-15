@@ -27,7 +27,7 @@ public class ReimbursementView extends HttpServlet {
 	// Handle fetch requests
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		resp.getWriter().append("Served at: ").append(req.getContextPath());
+		resp.getWriter().append("ReimbursementView Served at: ").append(req.getContextPath());
 	}
 
 	
@@ -39,7 +39,7 @@ public class ReimbursementView extends HttpServlet {
 		// Gets remID from session 
 		long uId = user.getRemId();
 		
-		// Sets remibursement ID
+		// Sets reimbursement ID
 		if(uId == 0L)
 			uId = 1;
 		else
@@ -50,21 +50,14 @@ public class ReimbursementView extends HttpServlet {
 
 		System.out.println("DES: " + descrip + "\nCost: " + cost);
 		
-		// Reimbursement object is null at initialization - MAY CAUSE NULL CONCERNS
-		Reimbursement reimbursement = null;
-		
-		// Sets all parameters into Reimbursement object
-		reimbursement.setuId(uId);
-		reimbursement.setDescrip(descrip);
-		reimbursement.setCost(cost);
 		
 		// Call submitReimb service to pass descrip and cost (String descrip, Double cost)
-		if(SubmitService.submitReimbursement(reimbursement))
+		if(SubmitService.submitReimbursement(uId, descrip, cost))
 			{
 				System.out.println("Success submitting reimbursment");
 				resp.sendRedirect("/WEB-INF/employeeHomePage.html");
 			}
-		else
+		else 
 		{
 			System.out.println("Reimbursement Failed");
 			resp.getWriter()

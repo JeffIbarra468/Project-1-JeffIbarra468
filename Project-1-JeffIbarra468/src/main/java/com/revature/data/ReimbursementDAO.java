@@ -5,16 +5,16 @@ import com.revature.model.Reimbursement;
 public interface ReimbursementDAO {
 
 	// Employee submits a reimbursement request
-	public boolean submitReimbursement(Reimbursement reimbursement);
+	public boolean submitReimbursement(long uId, String descrip, Double cost);
 
 	// Employee views their pending requests
-	public Reimbursement employeePending(Reimbursement reimbursement);
+	public Reimbursement employeePending(long uID);
 
 	// Employee views their resolved requests
-	public Reimbursement employeeResolved(Reimbursement reimbursement);
+	public Reimbursement employeeResolved(long remId);
 
 	// Manager approves or deny request
-	public boolean managerApproval(Reimbursement reimbursement);		
+	public boolean managerApproval(String status, long uId);		
 
 	// Manager views all pending requests
 	public Reimbursement allPending();

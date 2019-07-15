@@ -1,17 +1,17 @@
 'use strict';
 
 // View Pending Reimbursements - elements
-let getPenR = document.getElementById("getPenR");
+//let getPenR = document.getElementById("getPenR");
 //Element where user will see all interactions
 let penR = document.getElementById("penR");
 
 //View Pending Reimbursements
 
 //Clicker event by getPenR element Id
-getPenR.addEventListener("click", (event) => {
-	event.preventDefault();
+//getPenR.addEventListener("click", (event) => {
+//	event.preventDefault();
 
-	fetch("/EmployeePending")
+	fetch("/Project-1-JeffIbarra468/EmployeePending")
 		.then((response) => {
 			console.log(response);
 			return response.json();
@@ -34,4 +34,4 @@ getPenR.addEventListener("click", (event) => {
 		.catch((err) => {
 			console.log(err);
 		});
-});
+//});

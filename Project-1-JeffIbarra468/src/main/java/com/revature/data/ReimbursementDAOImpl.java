@@ -18,15 +18,15 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	
 	// Employee submits a reimbursement request - INSERT
 	@Override
-	public boolean submitReimbursement(Reimbursement reimbursement) {
+	public boolean submitReimbursement(long uId, String descrip, Double cost) {
 		
 		PreparedStatement statement = null;
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			statement = conn.prepareStatement("INSERT INTO Reimbursement VALUES(?,?,?,'Pending')");
-			statement.setLong(1, reimbursement.getuId());
-			statement.setString(2, reimbursement.getDescrip());
-			statement.setDouble(3, reimbursement.getCost());
+			statement.setLong(1, uId);
+			statement.setString(2, descrip);
+			statement.setDouble(3, cost);
 			statement.execute();
 			
 		} catch (SQLException e) {
@@ -42,16 +42,17 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	
 	// Employee views their pending requests - get
 	@Override
-	public Reimbursement employeePending(Reimbursement reimbursement) {
+	public Reimbursement employeePending(long remId) {
 		
+		Reimbursement reimbursement = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 
 		// Seperate SQL command from code - prevent SQL inject
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
-			statement = conn.prepareStatement("SELECT * FROM Reimbursement WHERE rem_Id = ? AND rem_status = 'Pending");
-			statement.setLong(1, reimbursement.getuId());
+			statement = conn.prepareStatement("SELECT * FROM Reimbursement WHERE rem_Id = ? AND rem_status = 'Pending'");
+			statement.setLong(1, remId);
 			statement.execute();
 			resultSet = statement.getResultSet();
 			resultSet.next();
@@ -70,16 +71,17 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	
 	// Employee views their resolved requests - get 
 	@Override
-	public Reimbursement employeeResolved(Reimbursement reimbursement) {
+	public Reimbursement employeeResolved(long remId) {
 		
+		Reimbursement reimbursement = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 
 		// Seperate SQL command from code - prevent SQL inject
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
-			statement = conn.prepareStatement("SELECT * FROM Reimbursement WHERE rem_Id = ? AND rem_status != 'Pending");
-			statement.setLong(1, reimbursement.getuId());
+			statement = conn.prepareStatement("SELECT * FROM Reimbursement WHERE rem_Id = ? AND rem_status != 'Pending'");
+			statement.setLong(1, remId);
 			statement.execute();
 			resultSet = statement.getResultSet();
 			resultSet.next();
@@ -99,15 +101,15 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	
 	// Manager approves or deny request - update
 	@Override
-	public boolean managerApproval(Reimbursement reimbursement) {
+	public boolean managerApproval(String status, long uId) {
 		
 		final String SQL_UPDATE = "UPDATE Reimbursement SET rem_status = ? WHERE rem_Id = ?";
 		PreparedStatement statement = null;
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			statement = conn.prepareStatement(SQL_UPDATE);
-			statement.setString(1, reimbursement.getStatus());
-			statement.setLong(2, reimbursement.getuId());
+			statement.setString(1, status);
+			statement.setLong(2, uId);
 			statement.execute();
 			
 		} catch (SQLException e) {
@@ -165,8 +167,9 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 //			statement.setString(1, reimbursement.getStatus());
 			statement.execute();
 			resultSet = statement.getResultSet();
-			resultSet.next();
+			while(resultSet.next()) {
 			reimbursement = new Reimbursement(resultSet);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();

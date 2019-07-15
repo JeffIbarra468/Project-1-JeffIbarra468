@@ -81,6 +81,12 @@
   	<load-on-startup>9</load-on-startup>
   </servlet>
   
+  <servlet>
+  	<servlet-name>ManagerApproval</servlet-name>
+  	<servlet-class>com.revature.ManagerApproval</servlet-class>
+  	<load-on-startup>10</load-on-startup>
+  </servlet>
+  
   
   <!--  Mapping LoginServlet.java URL address -->
   <servlet-mapping>
@@ -91,6 +97,9 @@
   <servlet-mapping>
   	<servlet-name>FrontControl</servlet-name>
   	<url-pattern>/FC</url-pattern>
+  	<!-- 
+  	<url-pattern>/advanced-pages/*</url-pattern>
+  	 -->
   </servlet-mapping>
   
   <servlet-mapping>
@@ -131,6 +140,11 @@
   <servlet-mapping>
   	<servlet-name>OneEmployee</servlet-name>
   	<url-pattern>/OneEmployee</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ManagerApproval</servlet-name>
+  	<url-pattern>/ManagerApproval</url-pattern>
   </servlet-mapping>
   
 </web-app>

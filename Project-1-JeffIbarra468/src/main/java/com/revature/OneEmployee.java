@@ -28,7 +28,7 @@ public class OneEmployee extends HttpServlet {
 	// Handle fetch requests
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		resp.getWriter().append("Served at: ").append(req.getContextPath());
+		resp.getWriter().append("OneEmployee Served at: ").append(req.getContextPath());
 	}
 
 	// Gets all reimbursements from one Employee
